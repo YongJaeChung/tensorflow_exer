@@ -67,3 +67,21 @@ model.summary()
 model.compile(loss='mse',optimizer='adam',metrics=['mae'])
 
 hist = model.fit(x_train,y_train,epochs=100,validation_data=(x_test,y_test))
+
+pred = model.predict(x_test)
+
+
+rand_idx = np.random.randint(0,len(y_test),size=5)
+
+print('pred =', pred.flatten()[rand_idx])
+print('y_test=', y_test.flatten()[rand_idx])
+
+rand_idx = np.random.randint(0,len(y_test),size=5)
+
+print('pred =', pred.flatten()[rand_idx])
+print('y_test=', y_test.flatten()[rand_idx])
+
+
+plt.plot(pred,label='prediction')
+plt.plot(y_test,label='y_test')
+plt.show()
